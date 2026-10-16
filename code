@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str, word = "", largest = "";
+
+    cout << "Enter a string: ";
+    getline(cin, str);
+
+    // add a space at the end so the last word is also checked
+    str = str + " ";
+
+    for (int i = 0; i < str.length(); i++) {
+
+        if (str[i] != ' ') {
+            // letter found, add it to the current word
+            word = word + str[i];
+        }
+        else {
+            // space found, so the current word is complete
+            if (word.length() > largest.length()) {
+                largest = word;
+            }
+            word = "";   // start a new word
+        }
+    }
+
+    cout << "Largest word: " << largest << endl;
+    cout << "Length: " << largest.length() << endl;
+
+    return 0;
+}
